@@ -11,12 +11,6 @@ const Navbar = () => {
     { name: 'Contact', href: '#contact' },
   ];
 
-  useEffect(() => {
-    // Trigger slide-in after a short delay
-    const timeout = setTimeout(() => setIsVisible(true), 100);
-    return () => clearTimeout(timeout);
-  }, []);
-
   return (
     <nav
       className={'fixed top-0 w-full z-50 bg-white/10 backdrop-blur-lg border-b border-white/20 shadow-sm text-white animate-fade-slide-nav-in'}
