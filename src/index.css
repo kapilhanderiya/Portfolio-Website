@@ -37,3 +37,50 @@ html {
     animation: fade-slide-in 1s ease-out both;
   }
 }
+fontFamily: {
+  orbitron: ['Orbitron', 'sans-serif'],
+}
+
+@layer utilities {
+  .glitch-text {
+    position: relative;
+  }
+  .glitch-text::before,
+  .glitch-text::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    width: 100%;
+    overflow: hidden;
+    color: #FF007F;
+    z-index: -1;
+  }
+  .glitch-text::before {
+    left: -2px;
+    text-shadow: -2px 0 magenta;
+    animation: glitch 2s infinite linear alternate-reverse;
+  }
+  .glitch-text::after {
+    left: 2px;
+    text-shadow: 2px 0 cyan;
+    animation: glitch 1.5s infinite linear alternate-reverse;
+  }
+  @keyframes glitch {
+    0% {
+      clip: rect(0, 900px, 0, 0);
+    }
+    10% {
+      clip: rect(0, 900px, 80px, 0);
+    }
+    20% {
+      clip: rect(20px, 900px, 100px, 0);
+    }
+    30% {
+      clip: rect(0, 900px, 80px, 0);
+    }
+    100% {
+      clip: rect(0, 900px, 0, 0);
+    }
+  }
+}
+
